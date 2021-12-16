@@ -1,0 +1,28 @@
+a:active {
+  color: black;
+  background-color: white;
+}
+
+.active {
+  background-color: white;
+  color: black;
+}
+
+ul.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.horizontal li a {
+  float: left;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
