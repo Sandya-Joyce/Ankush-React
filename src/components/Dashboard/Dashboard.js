@@ -1,6 +1,5 @@
 import AddStatus from "../Status/AddStatus/AddStatus";
 import { useState } from "react";
-import classes from "./Dashboard.module.css";
 import Button from "../ui/Button/Button";
 
 const Dashboard = () => {

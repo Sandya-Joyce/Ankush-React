@@ -12,20 +12,25 @@ import Contact from "./components/Contact/Contact";
 import "bootstrap/dist/css/bootstrap.min.css";
 import classes from "./index.css";
 
+import { Provider } from "react-redux";
+import { store } from './store/reducers/store'
+
 ReactDOM.render(
-  <BrowserRouter>
-    <div className={classes.container}>
-      <Header />
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <div className={classes.container}>
+        <Header />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
