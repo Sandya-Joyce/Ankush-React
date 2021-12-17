@@ -5,7 +5,7 @@ import Footer from "./components/ui/Footer/Footer";
 import Header from "./components/ui/Header/Header";
 
 import App from "./App";
-import Dashboard from "./components/Blogs/Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Blogs from "./components/Blogs/Blogs";
 import Contact from "./components/Contact/Contact";
 

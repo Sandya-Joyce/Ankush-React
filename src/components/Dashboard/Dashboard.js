@@ -1,6 +1,7 @@
-import AddStatus from "../../Status/AddStatus/AddStatus";
+import AddStatus from "../Status/AddStatus/AddStatus";
 import { useState } from "react";
 import classes from "./Dashboard.module.css";
+import Button from "../ui/Button/Button";
 
 const Dashboard = () => {
   const [addStatusVisibility, setaddStatusVisibility] = useState(false);
@@ -15,23 +16,29 @@ const Dashboard = () => {
     <div className="container-fluid">
       <div className="m-2 p-2">
         <div className="float-start">
-          <input
-            className="btn btn-primary"
-            type="button"
-            value="Browse Status"
-          />
+          <Button classes="btn-primary" type="button" onClick={toggleAddStatus}>
+            Browse Status
+          </Button>
         </div>
         <div className="float-end">
-          <input
-            className="btn btn-secondary"
+          <Button
+            classes="btn-secondary"
             type="button"
-            value="Add Status"
             onClick={toggleAddStatus}
-          />
+          >
+            Add Status
+          </Button>
         </div>
       </div>
       <section></section>
-      <div>{addStatusVisibility && <AddStatus />}</div>
+      <div>
+        {addStatusVisibility && (
+          <AddStatus
+            visibility={addStatusVisibility}
+            setVisibility={setaddStatusVisibility}
+          />
+        )}
+      </div>
     </div>
   );
 };

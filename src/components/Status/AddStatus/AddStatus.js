@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import Backdrop from "../../Helpers/Backdrop/Backdrop";
 import AddStatusForm from "../AddStatusForm/AddStatusForm";
 
-const AddStatus = () => {
+const AddStatus = ({visibility,setVisibility}) => {
+
   const addStatusHandler = (status) => {
     console.log({ id: uuid(), status: status });
+    setVisibility(false);
   };
 
   return (
@@ -16,24 +18,25 @@ const AddStatus = () => {
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <div className="modal" style={{ display: "block" }}>
-          <div className="modal-dialog modal-lg">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h4 className="modal-title">Add New Status</h4>
-              </div>
-              <div className="modal-body">
-                <AddStatusForm addStatusHandler={addStatusHandler} />
+        visibility && (
+          <div className="modal" style={{ display: "block" }}>
+            <div className="modal-dialog modal-lg">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">Add New Status</h4>
+                </div>
+                <div className="modal-body">
+                  <AddStatusForm addStatusHandler={addStatusHandler} />
+                </div>
               </div>
             </div>
           </div>
-        </div>,
+        ),
         document.getElementById("overlay-root")
       )}
     </>
   );
 };
-
 
 export default AddStatus;
 
