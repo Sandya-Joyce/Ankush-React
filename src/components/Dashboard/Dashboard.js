@@ -1,8 +1,12 @@
 import AddStatus from "../Status/AddStatus/AddStatus";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import Button from "../ui/Button/Button";
 
 const Dashboard = () => {
+  const statusList = useSelector((store) => store.status);
+
   const [addStatusVisibility, setaddStatusVisibility] = useState(false);
 
   const toggleAddStatus = () => {
@@ -37,6 +41,15 @@ const Dashboard = () => {
             setVisibility={setaddStatusVisibility}
           />
         )}
+      </div>
+      <hr />
+      <hr />
+      <div className="container-fluid">
+        <ul>
+          {statusList.map((status) => {
+            return <li key={status.uuid}>{status.status}</li>;
+          })}
+        </ul>
       </div>
     </div>
   );
