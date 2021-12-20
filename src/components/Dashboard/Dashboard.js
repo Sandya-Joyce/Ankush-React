@@ -1,57 +1,17 @@
-import AddStatus from "../Status/AddStatus/AddStatus";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
 
-import Button from "../ui/Button/Button";
+import Card from "../ui/Card/Card";
 
 const Dashboard = () => {
-  const statusList = useSelector((store) => store.status);
-
-  const [addStatusVisibility, setaddStatusVisibility] = useState(false);
-
-  const toggleAddStatus = () => {
-    setaddStatusVisibility((prevState) => {
-      return !prevState;
-    });
-  };
 
   return (
-    <div className="container-fluid">
-      <div className="m-2 p-2">
-        <div className="float-start">
-          <Button classes="btn-primary" type="button" onClick={toggleAddStatus}>
-            Browse Status
-          </Button>
+    <>
+      <Card>
+        <div className="card-header">
+          <Outlet />
         </div>
-        <div className="float-end">
-          <Button
-            classes="btn-secondary"
-            type="button"
-            onClick={toggleAddStatus}
-          >
-            Add Status
-          </Button>
-        </div>
-      </div>
-      <section></section>
-      <div>
-        {addStatusVisibility && (
-          <AddStatus
-            visibility={addStatusVisibility}
-            setVisibility={setaddStatusVisibility}
-          />
-        )}
-      </div>
-      <hr />
-      <hr />
-      <div className="container-fluid">
-        <ul>
-          {statusList.map((status) => {
-            return <li key={status.uuid}>{status.status}</li>;
-          })}
-        </ul>
-      </div>
-    </div>
+      </Card>
+    </>
   );
 };
 
