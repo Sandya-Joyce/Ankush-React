@@ -35,7 +35,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? classes.active : "")}
-              to="/dashboard/browse"
+              to="/dashboard"
             >
               Dashboard
             </NavLink>
